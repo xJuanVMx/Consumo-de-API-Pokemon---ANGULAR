@@ -1,0 +1,16 @@
+<div class="pokemon-card" *ngIf="pokemon">
+  <img
+    class="pokemon-card__image"
+    [src]="pokemon.image"
+    [alt]="pokemon.name"
+  />
+
+  <h3 class="pokemon-card__name">{{ pokemon.name }}</h3>
+
+  <ul class="pokemon-card__details">
+    <li><strong>Altura:</strong> {{ pokemon.height }}</li>
+    <li><strong>Peso:</strong> {{ pokemon.weight }}</li>
+    <li><strong>Tipos:</strong> {{ pokemon.types.join(', ') }}</li>
+    <li><strong>Habilidades:</strong> {{ pokemon.abilities.join(', ') }}</li>
+  </ul>
+</div>

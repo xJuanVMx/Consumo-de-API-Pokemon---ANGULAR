@@ -1,0 +1,33 @@
+.pokemon-list__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.pokemon-list__error {
+  color: #c0392b;
+  font-weight: bold;
+}
+
+h2{
+  text-align: center;
+}
+
+.pokemon-list__pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.pokemon-list__pagination button {
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.pokemon-list__pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
