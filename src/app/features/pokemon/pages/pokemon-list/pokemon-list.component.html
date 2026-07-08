@@ -2,10 +2,23 @@
 
   <h2>Listado de Pokémon</h2>
 
+  <div class="pokemon-list__search">
+    <input
+      #searchInput
+      type="text"
+      placeholder="Buscar Pokémon por nombre..."
+      (input)="onBuscar(searchInput.value)"
+    />
+  </div>
+
   <p *ngIf="cargando">Cargando Pokémon...</p>
 
   <p class="pokemon-list__error" *ngIf="error && !cargando">
     {{ error }}
+  </p>
+
+  <p *ngIf="isSearching && searchNotFound && !cargando && !error">
+    No se encontró ningún Pokémon con ese nombre.
   </p>
 
   <div class="pokemon-list__grid" *ngIf="!cargando && !error">
@@ -15,7 +28,7 @@
     ></app-pokemon-card>
   </div>
 
-  <div class="pokemon-list__pagination" *ngIf="!cargando && !error">
+  <div class="pokemon-list__pagination" *ngIf="!cargando && !error && !isSearching">
     <button
       type="button"
       [disabled]="offset === 0"

@@ -10,7 +10,32 @@
   <ul class="pokemon-card__details">
     <li><strong>Altura:</strong> {{ pokemon.height }}</li>
     <li><strong>Peso:</strong> {{ pokemon.weight }}</li>
-    <li><strong>Tipos:</strong> {{ pokemon.types.join(', ') }}</li>
+    <li>
+      <strong>Tipos:</strong>
+      <button
+        type="button"
+        class="pokemon-card__type-btn"
+        *ngFor="let tipo of pokemon.types"
+        [class.pokemon-card__type-btn--active]="selectedType === tipo"
+        (click)="seleccionarTipo(tipo)"
+      >
+        {{ tipo }}
+      </button>
+    </li>
     <li><strong>Habilidades:</strong> {{ pokemon.abilities.join(', ') }}</li>
   </ul>
+
+  <div class="pokemon-card__type-detail" *ngIf="selectedType">
+    <p *ngIf="cargandoTipo">Cargando información de {{ selectedType }}...</p>
+
+    <p class="pokemon-card__error" *ngIf="errorTipo && !cargandoTipo">
+      {{ errorTipo }}
+    </p>
+
+    <div *ngIf="typeDetail && !cargandoTipo">
+      <p><strong>Débil contra:</strong> {{ typeDetail.doubleDamageFrom.join(', ') || 'Ninguno' }}</p>
+      <p><strong>Resiste a:</strong> {{ typeDetail.halfDamageFrom.join(', ') || 'Ninguno' }}</p>
+      <p><strong>Inmune a:</strong> {{ typeDetail.noDamageFrom.join(', ') || 'Ninguno' }}</p>
+    </div>
+  </div>
 </div>

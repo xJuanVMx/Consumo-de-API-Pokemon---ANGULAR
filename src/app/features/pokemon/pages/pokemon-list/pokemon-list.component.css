@@ -1,3 +1,22 @@
+.pokemon-list {
+  text-align: center;
+}
+
+.pokemon-list__search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pokemon-list__search input {
+  width: 100%;
+  max-width: 320px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
 .pokemon-list__grid {
   display: flex;
   flex-wrap: wrap;
@@ -8,10 +27,6 @@
 .pokemon-list__error {
   color: #c0392b;
   font-weight: bold;
-}
-
-h2{
-  text-align: center;
 }
 
 .pokemon-list__pagination {
